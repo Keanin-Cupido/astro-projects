@@ -2,6 +2,18 @@
 // DB
 import { db, Comment } from 'astro:db';
 
+if (Astro.request.method === 'POST') {
+  // parse form data
+  const formData = await Astro.request.formData();
+  const name = formData.get('author');
+  const body = formData.get('content');
+  if (typeof name === 'string' && typeof body === 'string') {
+    // insert form data into the Comment table
+    await db.insert(Comment).values({ name, body });
+  }
+}
+
+// render the new list of comments on each request
 const comments = await db.select().from(Comment);
 
 import Layout from '../layouts/Layout.astro';
@@ -12,9 +24,20 @@ import Card from '../components/Card.astro';
 	<main>
 		<h1>Astro <span class="text-gradient">DB</span> Tutorial</h1>
 
+		<form method="POST" style="display: grid">
+		  <label for="author">Author</label>
+		  <input id="author" name="author" required />
+
+		  <label for="content">Content</label>
+		  <textarea id="content" name="content" required></textarea>
+
+		  <button type="submit">Submit</button>
+		</form>
+
 		{
 		  comments.map((comment) => (
 		    <article class="instructions">
+		      <p class="id_tag"><span class="text-gradient"><b>ID:</b></span> {comment.authorId}</p>
 		      <p><span class="text-gradient"><b>Author:</b></span> {comment.name}</p>
 		      <p>{comment.body}</p>
 		    </article>
@@ -64,5 +87,50 @@ import Card from '../components/Card.astro';
 	}
 	.instructions strong {
 		color: rgb(var(--accent-light));
+	}
+	.id_tag {
+		background: hsla(10, 0%, 0%, 0.25);
+		padding: 0.3em 0.6em;
+		width: 100%;
+		max-width: fit-content;
+		border-radius: 5px;
+	}
+	form {
+		background: hsla(0, 0%, 0%, 0.35);
+		border-radius: 10px;
+		padding: 2em;
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto;
+		margin-bottom: 3em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5em;
+	}
+	form label {
+		font-size: 1rem;
+		line-height: 1.6;
+		font-family: inherit;
+	}
+	form input, form textarea {
+		padding: 0.3em 0.5em;
+		font-size: 1rem;
+		line-height: 1.6;
+		font-family: inherit;
+		border: none;
+		border-radius: 5px;
+	}
+	form button {
+		width: 100%;
+		max-width: fit-content;
+		padding: 0.3em 0.6em;
+		font-size: 1rem;
+		line-height: 1.6;
+		font-family: inherit;
+		outline: none;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
 	}
 </style>
