@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
+import NavLink from './NavLink.astro';
+---
+
+<nav class="w-full pt-4 pb-5 pl-4 pr-4">
+    <div class="w-full max-w-[1170px] mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#">
+            <Image src="/images/logo.svg" alt="gridx" width="85" height="27"/>
+        </a>
+
+        <!-- Links -->
+         <ul class="flex gap-12 justify-between items-center">
+            <NavLink name="Home" link="./" />
+            <NavLink name="About" link="./about" />
+            <NavLink name="Works" link="./works" />
+            <NavLink name="Contact" link="./contact" />
+         </ul>
+
+        <!-- Button -->
+         <Button title="Let's talk" link="./contact" />
+    </div>
+</nav>

@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import NavLink from './NavLink.astro';
+
+---
+
+<footer class="w-full max-w-[1170px] mx-auto text-center mt-10 mb-20 flex flex-col gap-10 items-center justify-between">
+    <!-- Logo -->
+    <a href="#">
+        <Image src="/images/logo.svg" alt="gridx" width="85" height="27"/>
+    </a>
+
+    <!-- Links -->
+    <ul class="flex gap-10 items-center uppercase text-sm">
+        <NavLink name="Home" link="./" extraStyles="text-sm text-[#666666]" />
+        <NavLink name="About" link="./about" extraStyles="text-sm text-[#666666]" />
+        <NavLink name="Works" link="./works" extraStyles="text-sm text-[#666666]" />
+        <NavLink name="Contact" link="./contact" extraStyles="text-sm text-[#666666]" />
+     </ul>
+
+     <p class="text-[#666666] font-bold text-sm">
+        © All rights reserved by WordPressRiver
+     </p>
+</footer>

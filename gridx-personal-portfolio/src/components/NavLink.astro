@@ -1,0 +1,9 @@
+---
+const { name, link, extraStyles } = Astro.props;
+---
+
+<li>
+    <a href={link} class=`text-[#ffffff] text-[1rem] hover:text-white transition-all ${extraStyles}`>
+        {name}
+    </a>
+</li>
