@@ -1,17 +1,19 @@
 ---
-const {type, title} = Astro.props;
+import { Image } from 'astro:assets';
+const {type, title, link} = Astro.props;
 ---
 
-<a href="#"
-    class=""
+<a href={link}
+    class="bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-[hsl(0,0%,100%,0.05)] rounded-3xl py-8 px-8 w-full flex gap-8 items-center justify-center"
 >
-    <slot />
-    
-    <div class="content-container">
-        <div class="titles">
-            <p>{type}</p>
-            <h3>{title}</h3>
+    <div class="w-full flex flex-col gap-4 items-center justify-center">
+        <slot />
+        <div class="w-full flex gap-4 items-end justify-between">
+            <div class="flex flex-col gap-2 items-start justify-start">
+                <p class="uppercase text-[#BCBCBC] text-[0.75rem]">{type}</p>
+                <h3 class="capitalize text-white text-[1.25rem] font-medium">{title}</h3>
+            </div>
+            <Image class="" src="/images/icon.svg" alt="icon" width="46" height="42" />
         </div>
-        <div class="icon"></div>
     </div>
 </a>

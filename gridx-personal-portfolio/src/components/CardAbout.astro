@@ -1,15 +1,16 @@
 ---
 import { Image } from 'astro:assets';
+const cardImage = "https://images.pexels.com/photos/24847017/pexels-photo-24847017/free-photo-of-close-up-of-a-common-starling.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 ---
 
 <a href="#"
-    class="bg-red-500 rounded-2xl p-8 w-fit flex gap-4 items-center relative"
+    class="bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-[hsl(0,0%,100%,0.05)] rounded-3xl p-8 w-fit flex gap-2 items-center relative"
 >
-    <Image src="https://images.pexels.com/photos/4761672/pexels-photo-4761672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" width="224" height="224" />
-    <div class="card-content">
-        <p>WEB DESIGNER</p>
-        <h3>DAVID HENDERSON</h3>
-        <p>I am a Web Designer based in San Francisco</p>
+    <Image class="rounded-tl-2xl rounded-br-2xl" src={cardImage} alt="" width="224" height="224" />>
+    <div class="card-content flex flex-col gap-2 items-start justify-center">
+        <p class="text-[#868686] font-medium text-sm">A WEB DESIGNER</p>
+        <h3 class="text-white font-medium text-4xl">David Henderson.</h3>
+        <p class="text-[#868686] font-medium max-w-[80%]">I am a Web Designer based in San Francisco</p>
     </div>
-    <Image class="absolute bottom-6 right-6 rounded-tl-2xl rounded-br-2xl" src="/images/icon.svg" alt="icon" width="46" height="42" />
+    <Image class="absolute bottom-6 right-6" src="/images/icon.svg" alt="icon" width="46" height="42" />
 </a>

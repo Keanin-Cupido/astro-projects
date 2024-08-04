@@ -1,9 +1,8 @@
 ---
 import Card from "../components/Card.astro";
 import CardAbout from "../components/CardAbout.astro";
-import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
 <html lang="en">
@@ -16,11 +15,27 @@ import Layout from "../layouts/Layout.astro";
 	</head>
 
 	<Layout>
-		<main class="w-full mx-auto py-20 grid grid-cols-2 gap-4 max-w-[1170px]">
-			<CardAbout link="#" />
-			<CardAbout link="#" />
-			<CardAbout link="#" />
-			<CardAbout link="#" />
+		<main class="w-full mx-auto py-20 grid grid-cols-4 gap-4 max-w-[1170px]">
+			<div class="grid col-start-1 col-end-3">
+				<CardAbout link="#" />
+			</div>
+			<Card type="More About Me" title="Credentials" link="#">
+				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+			</Card>
+			<Card type="More About Me" title="Credentials" link="#">
+				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+			</Card>
+			<Card type="More About Me" title="Credentials" link="#">
+				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+			</Card>
+			<div class="w-full grid col-start-2 col-end-4">
+				<Card type="More About Me - Loooooooong" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+			<Card type="More About Me" title="Credentials" link="#">
+				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+			</Card>
 		</main>
 	</Layout>
 </html>
