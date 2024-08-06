@@ -4,7 +4,7 @@ const {type, title, link} = Astro.props;
 ---
 
 <a href={link}
-    class="bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-[hsl(0,0%,100%,0.05)] rounded-3xl py-8 px-8 w-full flex gap-8 items-center justify-center"
+    class="bg-gradient-to-br from-zinc-800 to-zinc-900 border-2 border-[hsl(0,0%,100%,0.05)] rounded-3xl py-8 px-8 w-full flex gap-8 items-center justify-center max-h-[250px]"
 >
     <div class="w-full flex flex-col gap-4 items-center justify-center">
         <slot />

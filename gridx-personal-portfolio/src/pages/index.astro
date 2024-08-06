@@ -1,5 +1,6 @@
 ---
 import Card from "../components/Card.astro";
+import CardEmpty from "../components/CardEmpty.astro";
 import CardAbout from "../components/CardAbout.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
@@ -15,27 +16,55 @@ import { Image } from "astro:assets";
 	</head>
 
 	<Layout>
-		<main class="w-full mx-auto py-20 grid grid-cols-4 gap-4 max-w-[1170px]">
-			<div class="grid col-start-1 col-end-3">
+		<main class="w-full mx-auto py-20 grid grid-rows-custom grid-cols-4 gap-4 max-w-[1170px]">
+			<!-- Top Row -->
+			<div class="grid row-start-1 row-end-6 col-start-1 col-end-3">
 				<CardAbout link="#" />
 			</div>
-			<Card type="More About Me" title="Credentials" link="#">
-				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
-			</Card>
-			<Card type="More About Me" title="Credentials" link="#">
-				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
-			</Card>
-			<Card type="More About Me" title="Credentials" link="#">
-				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
-			</Card>
-			<div class="w-full grid col-start-2 col-end-4">
+			<div class="grid row-start-1 row-end-2 col-start-3 col-end-5">
+				<CardEmpty>
+					<p class="text-white">LATEST WORK AND FEATURED</p>
+				</CardEmpty>
+			</div>
+			<div class="grid row-start-2 row-end-6 col-start-3 col-end-4">
+				<Card type="More About Me" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+			<div class="grid row-start-2 row-end-6 col-start-4 col-end-5">
+				<Card type="More About Me" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+
+			<!-- Middle Row -->
+			<div class="grid row-start-6 row-end-10 col-start-1 col-end-2">
+				<Card type="More About Me" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+			<div class="grid row-start-6 row-end-10 col-start-2 col-end-4">
 				<Card type="More About Me - Loooooooong" title="Credentials" link="#">
 					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
 				</Card>
 			</div>
-			<Card type="More About Me" title="Credentials" link="#">
-				<Image src="/images/sign.png" alt="signature" width="224" height="126" />
-			</Card>
+			<div class="grid row-start-6 row-end-10 col-start-4 col-end-5">
+				<Card type="More About Me" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+
+			<!-- Bottom Row -->
+			<div class="grid row-start-10 row-end-14 col-start-1 col-end-3">
+				<Card type="More About Me - Loooooooong" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
+			<div class="grid row-start-10 row-end-14 col-start-3 col-end-5">
+				<Card type="More About Me" title="Credentials" link="#">
+					<Image src="/images/sign.png" alt="signature" width="224" height="126" />
+				</Card>
+			</div>
 		</main>
 	</Layout>
 </html>
